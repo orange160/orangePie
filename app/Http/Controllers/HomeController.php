@@ -25,4 +25,12 @@ class HomeController extends Controller
     {
         return view('home');
     }
+
+    /**
+     * Show the route for 404 responses.
+     */
+    public function getNotFound()
+    {
+        return response()->view('errors.404', [], 404);
+    }
 }

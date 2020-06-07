@@ -18,5 +18,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index')->name('home');
 
 // Login/Logout routes
-Route::get('/login', 'Auth\LoginController@getLogin');
-Route::post('/login', 'Auth\LoginController@login')->name('login');
+Route::get('/login', 'Auth\LoginController@getLogin')->name('login');
+Route::post('/login', 'Auth\LoginController@login');
+Route::get('/register', 'Auth\RegisterController@getRegister')->name('register');
+Route::post('/register', 'Auth\RegisterController@register');
+
+Route::fallback('HomeController@getNotFound');

@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Auth\UserRepo;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Auth\User;
+use App\Exceptions\UserRegistrationException;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Request;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -24,22 +26,25 @@ class RegisterController extends Controller
     */
 
     use RegistersUsers;
-
     /**
-     * Where to redirect users after registration.
+     * Where to redirect users after login / registration.
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/';
+    protected $redirectPath = '/';
+
+    protected $userRepo;
 
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(UserRepo $userRepo)
     {
         $this->middleware('guest');
+        $this->userRepo = $userRepo;
     }
 
     /**
@@ -85,7 +90,27 @@ class RegisterController extends Controller
     {
         $this->validator($request->all())->validate();
         $userData = $request->all();
+        $userEmail = $userData['email'];
 
+        try {
+            // 确保邮箱没有注册
+            $alreadyUser = !is_null($this->userRepo->getByEmail($userEmail));
+            if ($alreadyUser) {
+                throw new UserRegistrationException('邮箱' . $userEmail . '已被注册');
+            }
 
+            // 创建用户
+            $newUser = $this->userRepo->registerNew($userData, false);
+            auth()->login($newUser);
+        } catch (UserRegistrationException $exception) {
+            if ($exception->getMessage()) {
+                $this->showErrorNotification($exception->getMessage());
+            }
+            return redirect($exception->redirectLocation);
+        }
+
+        $this->showSuccessNotification('恭喜您注册成功');
+
+        return redirect($this->redirectTo);
     }
 }

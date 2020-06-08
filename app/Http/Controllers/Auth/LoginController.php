@@ -57,7 +57,6 @@ class LoginController extends Controller
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function getLogin(Request $request) {
-        my_log($request);
         if ($request->has('email')) {
             session()->flashInput([
                 'email' => $request->get('email')
@@ -89,7 +88,8 @@ class LoginController extends Controller
 
         try {
             if ($this->attemptLogin($request)) {
-                return $this->sendLoginResponse($request);
+                $this->showSuccessNotification('登录成功');
+                return redirect($this->redirectTo);
             }
         } catch (LoginAttemptException $exception) {
             return $this->sendLoginAttemptExceptionResponse($exception, $request);

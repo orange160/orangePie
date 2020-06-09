@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Shanghai',
 
     /*
     |--------------------------------------------------------------------------
@@ -107,6 +107,11 @@ return [
     */
 
     'faker_locale' => 'en_US',
+
+    // Override the default behaviour for allowing crawlers to crawl the instance.
+    // May be ignored if view has be overridden or modified.
+    // Defaults to null since, if not set, 'app-public' status used instead.
+    'allow_robots' => env('ALLOW_ROBOTS', null),
 
     /*
     |--------------------------------------------------------------------------

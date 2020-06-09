@@ -1,4 +1,3 @@
-{!! nl2br(htmlentities(session()->get('success'))) !!}
 <div notification="success" style="display: none;" data-autohide class="pos" role="alert" @if(session()->has('success')) data-show @endif>
     @icon('check-circle') <span>{!! nl2br(htmlentities(session()->get('success'))) !!}</span><div class="dismiss">@icon('close')</div>
 </div>

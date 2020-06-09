@@ -13,9 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// ?? 此条路由不起作用，why ??
+Route::get('/robots.txt', 'HomeController@getRobots');
 
-//Auth::routes();
-Route::get('/', 'HomeController@index')->name('home');
+// Authenticated routes...
+Route::group(['middleware' => 'auth'], function (){
+    Route::get('/', 'HomeController@index')->name('home');
+
+});
+
 
 // Login/Logout routes
 Route::get('/login', 'Auth\LoginController@getLogin')->name('login');

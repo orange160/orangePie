@@ -1,5 +1,6 @@
 <?php
 
+use App\Auth\User;
 use Illuminate\Support\Facades\Log;
 
 /**
@@ -61,4 +62,27 @@ function theme_path(string $path = ''): string
     }
 
     return base_path('themes/' . $theme .($path ? DIRECTORY_SEPARATOR.$path : $path));
+}
+
+/**
+ * @return \Illuminate\Contracts\Auth\Authenticatable
+ */
+function user(): \Illuminate\Contracts\Auth\Authenticatable
+{
+    return auth()->user() ?: User::getDefault();
+}
+
+/**
+ * Helper to access system settings.
+ * @param string|null $key
+ * @param bool $default
+ * @return mixed
+ */
+function setting(string $key = null, $default = false)
+{
+    $settingService = resolve(\App\Settings\SettingService::class);
+    if (!is_null($key)) {
+        return $settingService;
+    }
+    return $settingService->get($key, $default);
 }

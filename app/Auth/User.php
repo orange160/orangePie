@@ -11,6 +11,12 @@ class User extends Authenticatable
     use Notifiable;
 
     /**
+     * This holds the default user when loaded
+     * @var null|User
+     */
+    protected static $defaultUser = null;
+
+    /**
      * The attributes that are mass assignable.
      *
      * @var array
@@ -36,4 +42,24 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * Check if the user is the default public user
+     *
+     * @return bool
+     */
+    public function isDefault()
+    {
+        return $this->system_name === 'public';
+    }
+
+    public static function getDefault()
+    {
+        if (!is_null(static::$defaultUser)) {
+            return static::$defaultUser;
+        }
+
+        static::$defaultUser = static::where('system_name', '=', 'public')->first();
+        return static::$defaultUser;
+    }
 }

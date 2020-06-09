@@ -13,6 +13,7 @@ window.$events = eventManager;
 import Vue from 'vue';
 Vue.prototype.$events = eventManager;
 
+
 // Load Vues and components
 import vues from "./vues/vues"
 import components from "./components"

@@ -20,6 +20,10 @@ Route::get('/robots.txt', 'HomeController@getRobots');
 Route::group(['middleware' => 'auth'], function (){
     Route::get('/', 'HomeController@index')->name('home');
 
+    // Profile
+    Route::get('/profile', 'Auth\ProfileController@getProfile')->name('profile');
+    Route::post('/profile', 'Auth\ProfileController@postProfile');
+    Route::post('/profile_pwd', 'Auth\ProfileController@changePassword');
 });
 
 

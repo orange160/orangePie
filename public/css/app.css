@@ -70,6 +70,13 @@
   transform: translate3d(0, -2px, 0);
 }
 
+small,
+p.small,
+span.small,
+.text-small {
+  font-size: 0.75rem;
+}
+
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors

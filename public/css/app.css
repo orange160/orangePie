@@ -77,6 +77,23 @@ span.small,
   font-size: 0.75rem;
 }
 
+.back-btn {
+  padding-left: 2rem !important;
+}
+
+.back-btn .svg-icon {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: rgba(0, 0, 255, 0.71);
+  position: absolute;
+  margin-top: 0;
+  margin-left: -1.4rem;
+}
+
+.back-btn:hover .svg-icon {
+  fill: #fff;
+}
+
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors

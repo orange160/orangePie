@@ -19,3 +19,6 @@
 
 清除配置缓存
 ```php artisan config:clear```
+
+生成Key
+```php artisan generate:key```

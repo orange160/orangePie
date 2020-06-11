@@ -1,6 +1,4 @@
-<?php
-namespace App\Auth;
-
+<?php namespace App\Auth;
 
 use Carbon\Carbon;
 

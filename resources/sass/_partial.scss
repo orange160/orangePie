@@ -1,0 +1,18 @@
+
+.back-btn {
+	padding-left: 2rem !important;
+	.svg-icon{
+		width: 1.1rem;
+		height: 1.1rem;
+		fill: rgba(0, 0, 255, 0.71);
+		position: absolute;
+		margin-top: 0;
+		margin-left: -1.4rem;
+	}
+
+	&:hover {
+		.svg-icon {
+			fill: #fff;
+		}
+	}
+}

@@ -22,7 +22,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('home.home');
     }
 
     /**
@@ -39,10 +39,8 @@ class HomeController extends Controller
      */
     public function getRobots()
     {
-        my_log('here');
         $sitePublic = setting('app-public', false);
         $allowRobots = config('app.allow_robots');
-        my_log('allowRobots: '.$allowRobots);
         if ($allowRobots === null) {
             $allowRobots = $sitePublic;
         }

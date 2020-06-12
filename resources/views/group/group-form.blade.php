@@ -2,6 +2,7 @@
 
 @section('main-content')
     <div class="col-lg-6 ">
+        <h5 class="py-2 border-bottom">创建分组</h5>
         <form action="{{ url('/group') }}" method="POST" class="py-2 border-bottom mb-3">
             @csrf
             <div class="form-group">

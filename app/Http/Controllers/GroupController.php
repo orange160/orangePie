@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Entiities\Group;
-use App\Entiities\GroupRepo;
+use App\Entiities\Repo\GroupRepo;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller
@@ -25,16 +25,18 @@ class GroupController extends Controller
      */
     public function getGroupForm()
     {
-        return view('group.group-form');
+        return view('group.group-form', ['groups' => user()->groups]);
     }
 
     public function storeGroup(Request $request)
     {
         $request->validate([
-            'name' => "required|string"
+            'name' => "required|string|max:16"
         ]);
 
-        $this->groupRepo->create($request->all());
+        if ($this->groupRepo->create($request->all())) {
+            $this->showSuccessNotification('保存成功');
+        }
 
         return redirect('/group');
     }

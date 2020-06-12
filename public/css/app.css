@@ -94,6 +94,28 @@ span.small,
   fill: #fff;
 }
 
+.entity-list {
+  margin: 0;
+}
+
+.entity-list-item {
+  display: flex;
+  align-items: center;
+  padding: 6px 0 6px 3px;
+  color: black;
+}
+
+.entity-list-item:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.entity-list-item .svg-icon {
+  width: 1.3rem;
+  height: 1.4rem;
+  fill: #6574cd;
+}
+
 /*!
  * Bootstrap v4.4.1 (https://getbootstrap.com/)
  * Copyright 2011-2019 The Bootstrap Authors

@@ -26,8 +26,12 @@ Route::group(['middleware' => 'auth'], function (){
     Route::post('/profile_pwd', 'Auth\ProfileController@changePassword');
 
     // Group
-    Route::get('/group', 'GroupController@getGroupForm');
-    Route::post('/group', 'GroupController@storeGroup');
+    Route::group(['prefix' => 'group'], function (){
+        Route::get('/', 'GroupController@getGroupForm');
+        Route::post('/', 'GroupController@storeGroup');
+        Route::get('{slug}', 'GroupController@show');
+    });
+
 });
 
 

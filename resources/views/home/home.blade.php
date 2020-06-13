@@ -3,7 +3,7 @@
 @section('content')
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-3 pr-3">
+        <div class="col-lg-3">
             @include('home.content-menu')
         </div>
         <div class="col-lg-9 bg-white">

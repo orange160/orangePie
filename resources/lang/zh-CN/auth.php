@@ -21,6 +21,7 @@ return [
     'email' => 'Email地址',
     'password' => '密码',
     'password_confirm' => '确认密码',
+    'password_new' => '新密码',
     'password_hint' => '必须超过7个字符',
     'forgot_password' => '忘记密码?',
     'remember_me' => '记住我',
@@ -37,6 +38,7 @@ return [
     'registrations_disabled' => '注册目前被禁用',
     'registration_email_domain_invalid' => '该Email域名无权访问此应用程序',
     'register_success' => '感谢您注册:appName，您现在已经登录。',
+    'register_time' => '注册时间',
 
 
     // Password Reset

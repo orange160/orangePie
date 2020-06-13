@@ -28,6 +28,7 @@ return [
     'email' => 'Email',
     'password' => 'Password',
     'password_confirm' => 'Confirm Password',
+    'password_new' => 'New Password',
     'password_hint' => 'Must be over 7 characters',
     'forgot_password' => 'Forgot Password?',
     'remember_me' => 'Remember Me',
@@ -44,7 +45,7 @@ return [
     'registrations_disabled' => 'Registrations are currently disabled',
     'registration_email_domain_invalid' => 'That email domain does not have access to this application',
     'register_success' => 'Thanks for signing up! You are now registered and signed in.',
-
+    'register_time' => 'Register Time',
 
     // Password Reset
     'reset_password' => 'Reset Password',

@@ -88,7 +88,6 @@ class LoginController extends Controller
 
         try {
             if ($this->attemptLogin($request)) {
-                $this->showSuccessNotification('登录成功');
                 return redirect($this->redirectTo);
             }
         } catch (LoginAttemptException $exception) {

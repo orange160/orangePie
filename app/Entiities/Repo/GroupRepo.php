@@ -2,6 +2,7 @@
 
 use App\Entiities\Group;
 use App\Entiities\GroupUser;
+use App\Exceptions\NotFoundException;
 use phpDocumentor\Reflection\Types\This;
 
 /**
@@ -41,6 +42,10 @@ class GroupRepo
         return true;
     }
 
+    /**
+     * 创建group和user的关联数据
+     * @return bool
+     */
     protected function createGroupUser()
     {
         $groupUser = new GroupUser();
@@ -52,5 +57,21 @@ class GroupRepo
         $groupUser->order = $maxOrder + 1;
 
         return $groupUser->save();
+    }
+
+    /**
+     * 通过slug查抄group
+     * @param $slug
+     * @return Group
+     * @throws NotFoundException
+     */
+    public function getBySlug($slug): Group
+    {
+        $group = Group::where('slug', '=', $slug)->first();
+        if ($group === null) {
+            throw new NotFoundException(trans('group.group_not_found'));
+        }
+
+        return $group;
     }
 }

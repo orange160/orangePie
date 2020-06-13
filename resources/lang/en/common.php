@@ -63,7 +63,7 @@ return [
     'breadcrumb' => 'Breadcrumb',
 
     // Header
-    'profile_menu' => 'Profile Menu',
+    'profile_menu' => 'Profile',
     'view_profile' => 'View Profile',
     'edit_profile' => 'Edit Profile',
     'dark_mode' => 'Dark Mode',
@@ -76,4 +76,6 @@ return [
     // Email Content
     'email_action_help' => 'If you’re having trouble clicking the ":actionText" button, copy and paste the URL below into your web browser:',
     'email_rights' => 'All rights reserved',
+
+    'introduction' => 'Introduction',
 ];

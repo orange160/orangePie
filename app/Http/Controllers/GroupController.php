@@ -25,9 +25,14 @@ class GroupController extends Controller
      */
     public function getGroupForm()
     {
-        return view('group.group-form', ['groups' => user()->groups]);
+        return view('group.group-create', ['groups' => user()->groups]);
     }
 
+    /**
+     * 向数据库中插入一条group数据
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function storeGroup(Request $request)
     {
         $request->validate([
@@ -39,5 +44,17 @@ class GroupController extends Controller
         }
 
         return redirect('/group');
+    }
+
+    /**
+     * 通过slug搜索group并显示
+     * @param $slug
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \App\Exceptions\NotFoundException
+     */
+    public function show($slug)
+    {
+        $groupDetail = $this->groupRepo->getBySlug($slug);
+        return view('group.group', ['groups' => user()->groups, 'groupDetail' => $groupDetail]);
     }
 }

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Entities\Group;
 use App\Entities\Repo\ProjectRepo;
 use Illuminate\Http\Request;
+use App\Entities\Project;
 
 class ProjectController extends Controller
 {
@@ -62,5 +63,33 @@ class ProjectController extends Controller
             $group = Group::where('slug', '=', $groupSlug)->first();
         }
         return $group;
+    }
+
+    /**
+     * 根据project的slug获取project对象
+     * @param $projectSlug
+     * @return Project|null
+     */
+    protected function getProjectBySlug($projectSlug)
+    {
+        $project = null;
+        if ($projectSlug !== null) {
+            $project = Project::where('slug', '=', $projectSlug)->first();
+        }
+        return $project;
+    }
+
+    /**
+     * 显示Project的信息
+     * @param string|null $slug
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function show(string $slug = null)
+    {
+        $project = null;
+        if ($slug !== null) {
+            $project = $this->getProjectBySlug($slug);
+        }
+        return view('project.show', ['project' => $project]);
     }
 }

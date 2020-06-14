@@ -35,6 +35,10 @@ Route::group(['middleware' => 'auth'], function (){
         Route::post('{groupSlug}/create-project', 'ProjectController@store');
     });
 
+    // Project
+    Route::group(['prefix' => 'project'], function (){
+       Route::get('{slug}', 'ProjectController@show');
+    });
 });
 
 

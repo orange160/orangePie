@@ -94,6 +94,26 @@ span.small,
   fill: #fff;
 }
 
+.entity-grid-auto {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 200px);
+  grid-gap: 10px;
+}
+
+.entity-grid-auto .entity-grid-item {
+  height: 170px;
+  background: rgba(0, 0, 255, 0.12);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s linear;
+}
+
+.entity-grid-auto .entity-grid-item:hover {
+  background-color: rgba(0, 0, 255, 0.3);
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4);
+  color: white;
+}
+
 .entity-list {
   margin: 0;
 }
@@ -108,6 +128,7 @@ span.small,
 .entity-list-item:hover {
   text-decoration: none;
   color: black;
+  background: rgba(0, 0, 255, 0.1);
 }
 
 .entity-list-item .svg-icon {

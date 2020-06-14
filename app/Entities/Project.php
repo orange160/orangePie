@@ -15,4 +15,18 @@ class Project extends Entity
     {
         return $this->belongsToMany('App\Entities\Group');
     }
+
+    /**
+     * 获取Project的链接地址
+     * @param bool $path
+     * @return \Illuminate\Contracts\Routing\UrlGenerator|string
+     */
+    public function getUrl($path = false)
+    {
+        if ($path !== false) {
+            return url('/project/' . urlencode($this->slug) . '/' . trim($path, '/'));
+        }
+
+        return url('/project/' . urlencode($this->slug));
+    }
 }

@@ -22,6 +22,7 @@ class ProjectRepo
             'group_id' => $group->id,
             'introduction' => $data['introduction']
         ]);
+        $this->project->refreshSlug();
 
         if (!$this->project->save()) {
             return false;

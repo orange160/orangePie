@@ -18,6 +18,7 @@ class CreateProjectsTable extends Migration
 
             $table->string('name')->nullable(false)->comment('名称');
             $table->foreignId('group_id')->constrained();
+            $table->string('slug')->comment('url的slug');
             $table->text('introduction')->comment('描述');
 
             $table->timestamps();

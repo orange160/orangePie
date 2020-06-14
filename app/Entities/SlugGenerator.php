@@ -1,4 +1,4 @@
-<?php namespace App\Entiities;
+<?php namespace App\Entities;
 
 class SlugGenerator
 {

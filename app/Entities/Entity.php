@@ -1,5 +1,5 @@
 <?php
-namespace App\Entiities;
+namespace App\Entities;
 
 
 use App\Ownable;

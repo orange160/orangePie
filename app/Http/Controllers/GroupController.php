@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Entiities\Group;
-use App\Entiities\Repo\GroupRepo;
+use App\Entities\Group;
+use App\Entities\Repo\GroupRepo;
 use Illuminate\Http\Request;
 
 class GroupController extends Controller

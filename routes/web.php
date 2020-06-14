@@ -30,6 +30,9 @@ Route::group(['middleware' => 'auth'], function (){
         Route::get('/', 'GroupController@getGroupForm');
         Route::post('/', 'GroupController@storeGroup');
         Route::get('{slug}', 'GroupController@show');
+
+        Route::get('{groupSlug}/create-project', 'ProjectController@create');
+        Route::post('{groupSlug}/create-project', 'ProjectController@store');
     });
 
 });

@@ -1,7 +1,7 @@
-<?php namespace App\Entiities\Repo;
+<?php namespace App\Entities\Repo;
 
-use App\Entiities\Group;
-use App\Entiities\GroupUser;
+use App\Entities\Group;
+use App\Entities\GroupUser;
 use App\Exceptions\NotFoundException;
 use phpDocumentor\Reflection\Types\This;
 

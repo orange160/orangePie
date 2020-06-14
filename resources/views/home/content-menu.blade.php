@@ -1,15 +1,19 @@
 <div class="content-menu">
     <div class="bg-white p-4 border-bottom">
 
-        <div class="row justify-content-between px-3">
-            <h5>
-                @if(@isset($groupDetail))
-                    {{ $groupDetail->name }}
-                @else
-                    @if(count($groups) > 0){{ $groups[0]->name }}@endif
-                @endif
-            </h5>
-            <a href={{ url("/group") }}>{{ __('common.create') }}</a>
+        <div class="row justify-content-between px-1">
+            <div class="col-lg-10">
+                <h5>
+                    @if(@isset($groupDetail))
+                        {{ $groupDetail->name }}
+                    @else
+                        @if(count($groups) > 0){{ $groups[0]->name }}@endif
+                    @endif
+                </h5>
+            </div>
+            <div class="col-lg=2">
+                <a href={{ url("/group") }}>{{ __('common.create') }}</a>
+            </div>
         </div>
 
         <div class="text-small text-muted my-3">{{ __('common.introduction') }}:

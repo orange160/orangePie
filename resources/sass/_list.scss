@@ -1,19 +1,31 @@
 
+// grid类
 .entity-grid-auto {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, 200px);
-	grid-gap: 10px;
+	grid-template-columns: repeat(auto-fill, 16rem);
+	grid-gap: 0.5rem;
 
 	.entity-grid-item {
-		height: 170px;
-		background: rgba(0, 0, 255, 0.12);
+		height: 18rem;
+		background: $indigo;
+		color: white;
 		border-radius: 4px;
 		cursor: pointer;
 		transition: all 0.2s linear;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		.svg-icon {
+			width: 5rem;
+			height: 5rem;
+			margin: 2rem auto 0;
+			fill: $orange;
+		}
 		&:hover {
-			background-color: rgba(0, 0, 255, 0.3);
+			background-color: $blue;
 			box-shadow: 3px 3px 5px rgba(0,0,0,0.4);
 			color: white;
+			text-decoration: none;
 		}
 	}
 }
@@ -27,14 +39,26 @@
 	align-items: center;
 	padding: $-xs 0 $-xs $-xxs;
 	color: black;
+	transition: all 0.2s linear;
 	&:hover {
 		text-decoration: none;
-		color: black;
-		background: rgba(0, 0, 255, 0.1);
+		color: white;
+		background: $blue;
+		.svg-icon {
+			fill: white;
+		}
 	}
 	.svg-icon {
 		width: 1.3rem;
 		height: 1.4rem;
 		fill: $indigo;
+	}
+}
+
+.active-list-item {
+	background-color: $indigo;
+	color: white;
+	.svg-icon {
+		fill: white;
 	}
 }

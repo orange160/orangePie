@@ -92,4 +92,65 @@ class ProjectController extends Controller
         }
         return view('project.show', ['project' => $project]);
     }
+
+    /**
+     * project的接口页面
+     * @param string|null $slug
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showInterface(string $slug = null)
+    {
+        $project = null;
+        if ($slug !== null) {
+            $project = $this->getProjectBySlug($slug);
+        }
+
+        return view('project.project-interface', ['project' => $project]);
+    }
+
+    /**
+     * project的activity记录
+     * @param string|null $slug
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showActivity(string $slug = null)
+    {
+        $project = null;
+        if ($slug !== null) {
+            $project = $this->getProjectBySlug($slug);
+        }
+
+        return view('project.project-activity', ['project' => $project]);
+    }
+
+    /**
+     * project的成员
+     * @param string|null $slug
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showMember(string $slug = null)
+    {
+        $project = null;
+        if ($slug !== null) {
+            $project = $this->getProjectBySlug($slug);
+        }
+
+        return view('project.project-member', ['project' => $project]);
+    }
+
+    /**
+     * project的设置界面
+     * @param string|null $slug
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function showSettings(string $slug = null)
+    {
+        $project = null;
+        if ($slug !== null) {
+            $project = $this->getProjectBySlug($slug);
+        }
+
+        return view('project.project-settings', ['project' => $project]);
+    }
+
 }

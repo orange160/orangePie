@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container-fluid">
-    <div class="row">
+    <div class="row justify-content-between">
         <div class="col-lg-3">
             @include('home.content-menu')
         </div>

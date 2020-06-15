@@ -38,6 +38,11 @@ Route::group(['middleware' => 'auth'], function (){
     // Project
     Route::group(['prefix' => 'project'], function (){
        Route::get('{slug}', 'ProjectController@show');
+
+       Route::get('{slug}/interface', 'ProjectController@showInterface');
+       Route::get('{slug}/activity', 'ProjectController@showActivity');
+       Route::get('{slug}/member', 'ProjectController@showMember');
+       Route::get('{slug}/settings', 'ProjectController@showSettings');
     });
 });
 

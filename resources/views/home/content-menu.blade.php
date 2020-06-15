@@ -1,8 +1,8 @@
 <div class="content-menu">
     <div class="bg-white p-4 border-bottom">
 
-        <div class="row justify-content-between px-1">
-            <div class="col-lg-10">
+        <div class="row justify-content-between">
+            <div class="col-lg-7">
                 <h5>
                     @if(@isset($groupDetail))
                         {{ $groupDetail->name }}
@@ -11,7 +11,7 @@
                     @endif
                 </h5>
             </div>
-            <div class="col-lg=2">
+            <div class="col-lg-3">
                 <a href={{ url("/group") }}>{{ __('common.create') }}</a>
             </div>
         </div>

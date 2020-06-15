@@ -9,11 +9,11 @@ class Project extends Entity
 
     /**
      * 定义和group的模型关联
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function group()
     {
-        return $this->belongsToMany('App\Entities\Group');
+        return $this->belongsTo('App\Entities\Group');
     }
 
     /**

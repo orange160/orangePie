@@ -104,8 +104,7 @@ class ProjectController extends Controller
         if ($slug !== null) {
             $project = $this->getProjectBySlug($slug);
         }
-
-        return view('project.project-interface', ['project' => $project]);
+        return view('project.project-interface', ['group' => $project->group, 'project' => $project, 'modules' => $project->modules]);
     }
 
     /**

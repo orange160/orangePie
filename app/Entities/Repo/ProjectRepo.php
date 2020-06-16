@@ -24,8 +24,6 @@ class ProjectRepo
         ]);
         $this->project->refreshSlug();
 
-        if (!$this->project->save()) {
-            return false;
-        }
+        return $this->project->save();
     }
 }

@@ -17,6 +17,15 @@ class Project extends Entity
     }
 
     /**
+     * 定义和module的模型关联
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function modules()
+    {
+        return $this->hasMany('App\Entities\Module');
+    }
+
+    /**
      * 获取Project的链接地址
      * @param bool $path
      * @return \Illuminate\Contracts\Routing\UrlGenerator|string

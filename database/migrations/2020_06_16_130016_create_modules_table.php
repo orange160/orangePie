@@ -17,9 +17,9 @@ class CreateModulesTable extends Migration
             $table->id();
 
             $table->foreignId('project_id')->constrained();
-            $table->string('name')->nullable(false)->comment('名称');
+            $table->string('name')->nullable(false)->comment('名称')->comment('project表的外键');
             $table->string('slug')->comment('url的slug');
-            $table->text('introduction')->comment('概要');
+            $table->text('introduction')->nullable(true)->comment('概要');
 
             $table->timestamps();
         });

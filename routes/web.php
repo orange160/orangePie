@@ -43,6 +43,13 @@ Route::group(['middleware' => 'auth'], function (){
        Route::get('{slug}/activity', 'ProjectController@showActivity');
        Route::get('{slug}/member', 'ProjectController@showMember');
        Route::get('{slug}/settings', 'ProjectController@showSettings');
+
+       Route::post('{slug}/create-interface', 'ModuleController@store');
+
+        // Module
+        Route::group(['prefix' => '{projectSlug}/interface/module'], function (){
+            Route::get('{moduleSlug}', 'ModuleController@show');
+        });
     });
 });
 

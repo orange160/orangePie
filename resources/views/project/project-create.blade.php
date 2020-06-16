@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container bg-white">
+    <div class="container bg-white py-4">
         <h5 class="p-2 border-bottom">{{ $group->name }}</h5>
 
         <form action="{{ $group->getUrl() . '/' . 'create-project' }}" method="POST" class="mb-3 pb-3 border-bottom">

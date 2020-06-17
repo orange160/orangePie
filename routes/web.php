@@ -49,6 +49,9 @@ Route::group(['middleware' => 'auth'], function (){
         // Module
         Route::group(['prefix' => '{projectSlug}/interface/module'], function (){
             Route::get('{moduleSlug}', 'ModuleController@show');
+
+            // 创建API表单
+            Route::get('{moduleSlug}/create-api', 'ApiController@create');
         });
     });
 });
